@@ -2,23 +2,32 @@ import "./App.css";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Vplayer from "./components/vplayer";
+import Options from "./components/options";
+import Notify from "./components/notify";
+import { makeStyles } from "@material-ui/styles";
 
-function App() {
+const useStyles = makeStyles((theme) => ({}));
+
+const App = () => {
+  const classes = useStyles();
   return (
     <>
-      <div>
-        <AppBar position="static" color="inherit">
+      <div className={classes.wrapper}>
+        <AppBar position="static" color="inherit" className={classes.appbar}>
           <Toolbar>
-            <Typography variant="h2" align="center">
+            <Typography variant="h3" align="center">
               Vc Meet
             </Typography>
           </Toolbar>
         </AppBar>
-        {/* Video player */}
-        {/* options -> notifications */}
+        <Vplayer />
+        <Options>
+          <Notify />
+        </Options>
       </div>
     </>
   );
-}
+};
 
 export default App;
